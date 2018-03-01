@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :mentee_positions,
+             :class_name => "Mentorship",
+             :foreign_key => "mentee_id",
+             :dependent => :destroy
+
   has_many   :mentor_positions,
              :class_name => "Mentorship",
              :foreign_key => "mentor_id",
