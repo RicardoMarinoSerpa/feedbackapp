@@ -26,6 +26,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :sender_users,
+             :through => :received_feedbacks,
+             :source => :sender_user
+
+  has_many   :receiver_users,
+             :through => :sent_feedbacks,
+             :source => :receiver_user
+
   has_many   :mentors,
              :through => :mentee_positions,
              :source => :mentor
