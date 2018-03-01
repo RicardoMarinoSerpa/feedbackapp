@@ -1,6 +1,8 @@
 class Subdimension < ApplicationRecord
   # Direct associations
 
+  belongs_to :dimension
+
   has_many   :feedbacks,
              :dependent => :destroy
 
