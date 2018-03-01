@@ -51,7 +51,7 @@
           Subdimension
         </label>
 
-        <input type="text" id="subdimension_id" name="subdimension_id" placeholder="Subdimension" class="form-control" value="<%= @feedback.subdimension_id %>">
+        <%= select_tag(:subdimension_id, options_from_collection_for_select(Subdimension.all, :id, :name, @feedback.subdimension_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for grade -->
