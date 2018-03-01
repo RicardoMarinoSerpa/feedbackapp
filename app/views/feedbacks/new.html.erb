@@ -42,7 +42,7 @@
           Receiver user
         </label>
 
-        <input type="text" id="receiver_user_id" name="receiver_user_id" placeholder="Receiver user" class="form-control" value="<%= @feedback.receiver_user_id %>">
+        <%= select_tag(:receiver_user_id, options_from_collection_for_select(User.all, :id, :name, @feedback.receiver_user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for subdimension_id -->
