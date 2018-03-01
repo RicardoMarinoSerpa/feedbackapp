@@ -18,7 +18,7 @@
       <% @staffings.each do |staffing| %>
       <tr>
         <td><%= staffing.project.name %></td>
-        <td><%= staffing.user_id %></td>
+        <td><%= staffing.user.name %></td>
         <td><%= staffing.role_id %></td>
         <td>
           <a href="/staffings/<%= staffing.id %>" class="btn btn-primary">Show</a>
