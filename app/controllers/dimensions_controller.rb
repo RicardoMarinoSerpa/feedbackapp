@@ -1,6 +1,7 @@
 class DimensionsController < ApplicationController
   def index
-    @dimensions = Dimension.page(params[:page]).per(10)
+    @q = Dimension.ransack(params[:q])
+    @dimensions = @q.result(:distinct => true).includes(:subdimensions).page(params[:page]).per(10)
 
     render("dimensions/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class StaffingsController < ApplicationController
   def index
-    @staffings = Staffing.page(params[:page]).per(10)
+    @q = Staffing.ransack(params[:q])
+    @staffings = @q.result(:distinct => true).includes(:user, :project, :role, :feedbacks).page(params[:page]).per(10)
 
     render("staffings/index.html.erb")
   end
