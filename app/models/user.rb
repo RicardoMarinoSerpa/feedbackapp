@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sent_feedbacks,
+             :class_name => "Feedback",
+             :foreign_key => "sender_user_id",
+             :dependent => :destroy
+
   has_many   :staffings,
              :dependent => :destroy
 
