@@ -1,6 +1,6 @@
 class DimensionsController < ApplicationController
   def index
-    @dimensions = Dimension.all
+    @dimensions = Dimension.page(params[:page]).per(10)
 
     render("dimensions/index.html.erb")
   end

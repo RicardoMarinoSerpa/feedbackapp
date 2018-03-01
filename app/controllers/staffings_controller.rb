@@ -1,6 +1,6 @@
 class StaffingsController < ApplicationController
   def index
-    @staffings = Staffing.all
+    @staffings = Staffing.page(params[:page]).per(10)
 
     render("staffings/index.html.erb")
   end

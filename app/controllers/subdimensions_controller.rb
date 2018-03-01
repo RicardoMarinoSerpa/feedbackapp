@@ -1,6 +1,6 @@
 class SubdimensionsController < ApplicationController
   def index
-    @subdimensions = Subdimension.all
+    @subdimensions = Subdimension.page(params[:page]).per(10)
 
     render("subdimensions/index.html.erb")
   end
