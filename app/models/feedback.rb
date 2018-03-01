@@ -1,6 +1,8 @@
 class Feedback < ApplicationRecord
   # Direct associations
 
+  belongs_to :subdimension
+
   belongs_to :staffing
 
   belongs_to :receiver_user,
