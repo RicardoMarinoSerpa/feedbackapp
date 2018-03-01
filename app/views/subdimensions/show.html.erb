@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Subdimension #<%= @subdimension.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Dimension</dt>
+      <dd><%= @subdimension.dimension_id %></dd>
+
+      <dt>Role</dt>
+      <dd><%= @subdimension.role_id %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @subdimension.name %></dd>
+
+      <dt>Expectation</dt>
+      <dd><%= @subdimension.expectation %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/subdimensions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/subdimensions/<%= @subdimension.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_subdimension/<%= @subdimension.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

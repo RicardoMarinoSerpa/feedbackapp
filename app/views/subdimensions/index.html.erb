@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Subdimensions
+    <a href="/subdimensions/new" class="btn btn-lg btn-success">New Subdimension</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Dimension</th>
+        <th>Role</th>
+        <th>Name</th>
+        <th>Expectation</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @subdimensions.each do |subdimension| %>
+      <tr>
+        <td><%= subdimension.dimension_id %></td>
+        <td><%= subdimension.role_id %></td>
+        <td><%= subdimension.name %></td>
+        <td><%= subdimension.expectation %></td>
+        <td>
+          <a href="/subdimensions/<%= subdimension.id %>" class="btn btn-primary">Show</a>
+          <a href="/subdimensions/<%= subdimension.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_subdimension/<%= subdimension.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

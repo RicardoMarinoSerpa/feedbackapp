@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @subdimension.errors.any? %>
+  <% @subdimension.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Subdimension</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_subdimension" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for dimension_id -->
+      <div class="form-group">
+        <label for="dimension_id" class="control-label">
+          Dimension
+        </label>
+
+        <input type="text" id="dimension_id" name="dimension_id" placeholder="Dimension" class="form-control" value="<%= @subdimension.dimension_id %>">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" value="<%= @subdimension.role_id %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @subdimension.name %>">
+      </div>
+
+      <!-- Label and input for expectation -->
+      <div class="form-group">
+        <label for="expectation" class="control-label">
+          Expectation
+        </label>
+
+        <input type="text" id="expectation" name="expectation" placeholder="Expectation" class="form-control" value="<%= @subdimension.expectation %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Subdimension
+      </button>
+      or
+      <a href="/subdimensions">Cancel</a>
+    </form>
+  </div>
+</div>
