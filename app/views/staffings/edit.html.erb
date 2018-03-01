@@ -24,7 +24,7 @@
           Project
         </label>
 
-        <input type="text" id="project_id" name="project_id" placeholder="Project" class="form-control" value="<%= @staffing.project_id %>">
+        <%= select_tag(:project_id, options_from_collection_for_select(Project.all, :id, :name, @staffing.project_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
