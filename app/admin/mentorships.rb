@@ -1,4 +1,6 @@
 ActiveAdmin.register Mentorship do
+
+ permit_params :mentee_id, :mentor_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
