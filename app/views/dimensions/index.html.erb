@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Dimensions
+    <a href="/dimensions/new" class="btn btn-lg btn-success">New Dimension</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @dimensions.each do |dimension| %>
+      <tr>
+        <td><%= dimension.name %></td>
+        <td>
+          <a href="/dimensions/<%= dimension.id %>" class="btn btn-primary">Show</a>
+          <a href="/dimensions/<%= dimension.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_dimension/<%= dimension.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Dimension resource:
+  # CREATE
+  get "/dimensions/new", :controller => "dimensions", :action => "new"
+  post "/create_dimension", :controller => "dimensions", :action => "create"
+
+  # READ
+  get "/dimensions", :controller => "dimensions", :action => "index"
+  get "/dimensions/:id", :controller => "dimensions", :action => "show"
+
+  # UPDATE
+  get "/dimensions/:id/edit", :controller => "dimensions", :action => "edit"
+  post "/update_dimension/:id", :controller => "dimensions", :action => "update"
+
+  # DELETE
+  get "/delete_dimension/:id", :controller => "dimensions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Subdimension resource:
   # CREATE
   get "/subdimensions/new", :controller => "subdimensions", :action => "new"
