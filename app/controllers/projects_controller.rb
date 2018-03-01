@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @staffing = Staffing.new
     @project = Project.find(params[:id])
 
     render("projects/show.html.erb")

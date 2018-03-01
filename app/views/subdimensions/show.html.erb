@@ -60,6 +60,75 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_feedback" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for staffing_id -->
+      <div class="form-group">
+        <label for="staffing_id" class="control-label">
+          Staffing
+        </label>
+
+        <%= select_tag(:staffing_id, options_from_collection_for_select(Staffing.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for sender_user_id -->
+      <input type="hidden" name="sender_user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for receiver_user_id -->
+      <div class="form-group">
+        <label for="receiver_user_id" class="control-label">
+          Receiver user
+        </label>
+
+        <%= select_tag(:receiver_user_id, options_from_collection_for_select(User.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for subdimension_id -->
+      <input type="hidden" name="subdimension_id" value="<%= @subdimension.id %>">
+
+      <!-- Label and input for grade -->
+      <div class="form-group">
+        <label for="grade" class="control-label">
+          Grade
+        </label>
+
+        <input type="text" id="grade" name="grade" placeholder="Grade" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for receiver_visible -->
+      <div class="checkbox">
+        <label for="receiver_visible">
+          <input type="checkbox" id="receiver_visible" name="receiver_visible" value="1" <%= "checked" if @feedback.receiver_visible %>>
+          Receiver visible
+        </label>
+      </div>
+
+      <!-- Label and input for mentor_visible -->
+      <div class="checkbox">
+        <label for="mentor_visible">
+          <input type="checkbox" id="mentor_visible" name="mentor_visible" value="1" <%= "checked" if @feedback.mentor_visible %>>
+          Mentor visible
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Feedback
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

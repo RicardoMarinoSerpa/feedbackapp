@@ -6,6 +6,7 @@ class StaffingsController < ApplicationController
   end
 
   def show
+    @feedback = Feedback.new
     @staffing = Staffing.find(params[:id])
 
     render("staffings/show.html.erb")

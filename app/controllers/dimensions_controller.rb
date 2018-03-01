@@ -6,6 +6,7 @@ class DimensionsController < ApplicationController
   end
 
   def show
+    @subdimension = Subdimension.new
     @dimension = Dimension.find(params[:id])
 
     render("dimensions/show.html.erb")

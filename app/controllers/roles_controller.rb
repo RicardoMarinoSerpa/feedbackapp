@@ -6,6 +6,8 @@ class RolesController < ApplicationController
   end
 
   def show
+    @subdimension = Subdimension.new
+    @staffing = Staffing.new
     @role = Role.find(params[:id])
 
     render("roles/show.html.erb")

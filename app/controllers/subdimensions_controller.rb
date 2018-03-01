@@ -6,6 +6,7 @@ class SubdimensionsController < ApplicationController
   end
 
   def show
+    @feedback = Feedback.new
     @subdimension = Subdimension.find(params[:id])
 
     render("subdimensions/show.html.erb")

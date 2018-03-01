@@ -51,6 +51,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_subdimension" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for dimension_id -->
+      <input type="hidden" name="dimension_id" value="<%= @dimension.id %>">
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <%= select_tag(:role_id, options_from_collection_for_select(Role.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for expectation -->
+      <div class="form-group">
+        <label for="expectation" class="control-label">
+          Expectation
+        </label>
+
+        <input type="text" id="expectation" name="expectation" placeholder="Expectation" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Subdimension
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
