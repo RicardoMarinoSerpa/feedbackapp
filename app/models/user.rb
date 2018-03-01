@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :roles,
+             :through => :staffings,
+             :source => :role
+
   has_many   :projects,
              :through => :staffings,
              :source => :project
