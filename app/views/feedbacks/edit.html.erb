@@ -33,7 +33,7 @@
           Sender user
         </label>
 
-        <input type="text" id="sender_user_id" name="sender_user_id" placeholder="Sender user" class="form-control" value="<%= @feedback.sender_user_id %>">
+        <%= select_tag(:sender_user_id, options_from_collection_for_select(User.all, :id, :name, @feedback.sender_user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for receiver_user_id -->
