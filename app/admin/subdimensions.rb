@@ -1,4 +1,6 @@
 ActiveAdmin.register Subdimension do
+
+ permit_params :dimension_id, :role_id, :name, :expectation
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
