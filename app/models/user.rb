@@ -26,6 +26,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :mentors,
+             :through => :mentee_positions,
+             :source => :mentor
+
+  has_many   :mentees,
+             :through => :mentor_positions,
+             :source => :mentee
+
   # Validations
 
   # Include default devise modules. Others available are:
