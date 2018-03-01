@@ -22,7 +22,7 @@
 
       <% @feedbacks.each do |feedback| %>
       <tr>
-        <td><%= feedback.staffing_id %></td>
+        <td><%= feedback.staffing.created_at %></td>
         <td><%= feedback.sender_user_id %></td>
         <td><%= feedback.receiver_user_id %></td>
         <td><%= feedback.subdimension_id %></td>
