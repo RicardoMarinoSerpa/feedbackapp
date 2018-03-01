@@ -27,14 +27,8 @@
         <%= select_tag(:staffing_id, options_from_collection_for_select(Staffing.all, :id, :created_at, @feedback.staffing_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for sender_user_id -->
-      <div class="form-group">
-        <label for="sender_user_id" class="control-label">
-          Sender user
-        </label>
-
-        <%= select_tag(:sender_user_id, options_from_collection_for_select(User.all, :id, :name, @feedback.sender_user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for receiver_user_id -->
       <div class="form-group">
