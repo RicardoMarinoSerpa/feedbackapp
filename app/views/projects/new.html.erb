@@ -1,0 +1,72 @@
+<!-- Validation failure messages -->
+<% if @project.errors.any? %>
+  <% @project.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Project</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_project" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @project.name %>">
+      </div>
+
+      <!-- Label and input for code -->
+      <div class="form-group">
+        <label for="code" class="control-label">
+          Code
+        </label>
+
+        <input type="text" id="code" name="code" placeholder="Code" class="form-control" value="<%= @project.code %>">
+      </div>
+
+      <!-- Label and input for start_date -->
+      <div class="form-group">
+        <label for="start_date" class="control-label">
+          Start date
+        </label>
+
+        <input type="text" id="start_date" name="start_date" placeholder="Start date" class="form-control" value="<%= @project.start_date %>">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @project.end_date %>">
+      </div>
+
+      <!-- Label and input for active -->
+      <div class="checkbox">
+        <label for="active">
+          <input type="checkbox" id="active" name="active" value="1" <%= "checked" if @project.active %>>
+          Active
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Project
+      </button>
+      or
+      <a href="/projects">Cancel</a>
+    </form>
+  </div>
+</div>
