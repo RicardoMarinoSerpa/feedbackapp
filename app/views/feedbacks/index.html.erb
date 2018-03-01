@@ -22,10 +22,34 @@
 
       <% @feedbacks.each do |feedback| %>
       <tr>
-        <td><%= feedback.staffing.created_at %></td>
-        <td><%= feedback.sender_user.name %></td>
-        <td><%= feedback.receiver_user.name %></td>
-        <td><%= feedback.subdimension.name %></td>
+        <td>
+          <% if feedback.staffing.present? %>
+            <a href="/staffings/<%= feedback.staffing.id %>">
+              <%= feedback.staffing.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if feedback.sender_user.present? %>
+            <a href="/users/<%= feedback.sender_user.id %>">
+              <%= feedback.sender_user.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if feedback.receiver_user.present? %>
+            <a href="/users/<%= feedback.receiver_user.id %>">
+              <%= feedback.receiver_user.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if feedback.subdimension.present? %>
+            <a href="/subdimensions/<%= feedback.subdimension.id %>">
+              <%= feedback.subdimension.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= feedback.grade %></td>
         <td><%= feedback.comment %></td>
         <td><%= feedback.receiver_visible %></td>

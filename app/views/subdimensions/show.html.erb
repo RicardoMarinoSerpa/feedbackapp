@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Dimension</dt>
-      <dd><%= @subdimension.dimension_id %></dd>
+      <dd>
+        <% if @subdimension.dimension.present? %>
+          <a href="/dimensions/<%= @subdimension.dimension_id %>">
+            <%= @subdimension.dimension.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Role</dt>
-      <dd><%= @subdimension.role_id %></dd>
+      <dd>
+        <% if @subdimension.role.present? %>
+          <a href="/roles/<%= @subdimension.role_id %>">
+            <%= @subdimension.role.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @subdimension.name %></dd>

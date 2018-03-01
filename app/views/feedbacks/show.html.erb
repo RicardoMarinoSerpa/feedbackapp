@@ -6,16 +6,40 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Staffing</dt>
-      <dd><%= @feedback.staffing_id %></dd>
+      <dd>
+        <% if @feedback.staffing.present? %>
+          <a href="/staffings/<%= @feedback.staffing_id %>">
+            <%= @feedback.staffing.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Sender user</dt>
-      <dd><%= @feedback.sender_user_id %></dd>
+      <dd>
+        <% if @feedback.sender_user.present? %>
+          <a href="/users/<%= @feedback.sender_user_id %>">
+            <%= @feedback.sender_user.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Receiver user</dt>
-      <dd><%= @feedback.receiver_user_id %></dd>
+      <dd>
+        <% if @feedback.receiver_user.present? %>
+          <a href="/users/<%= @feedback.receiver_user_id %>">
+            <%= @feedback.receiver_user.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Subdimension</dt>
-      <dd><%= @feedback.subdimension_id %></dd>
+      <dd>
+        <% if @feedback.subdimension.present? %>
+          <a href="/subdimensions/<%= @feedback.subdimension_id %>">
+            <%= @feedback.subdimension.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Grade</dt>
       <dd><%= @feedback.grade %></dd>

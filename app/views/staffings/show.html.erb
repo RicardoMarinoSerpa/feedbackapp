@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Project</dt>
-      <dd><%= @staffing.project_id %></dd>
+      <dd>
+        <% if @staffing.project.present? %>
+          <a href="/projects/<%= @staffing.project_id %>">
+            <%= @staffing.project.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @staffing.user_id %></dd>
+      <dd>
+        <% if @staffing.user.present? %>
+          <a href="/users/<%= @staffing.user_id %>">
+            <%= @staffing.user.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Role</dt>
-      <dd><%= @staffing.role_id %></dd>
+      <dd>
+        <% if @staffing.role.present? %>
+          <a href="/roles/<%= @staffing.role_id %>">
+            <%= @staffing.role.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

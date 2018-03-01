@@ -17,9 +17,27 @@
 
       <% @staffings.each do |staffing| %>
       <tr>
-        <td><%= staffing.project.name %></td>
-        <td><%= staffing.user.name %></td>
-        <td><%= staffing.role.name %></td>
+        <td>
+          <% if staffing.project.present? %>
+            <a href="/projects/<%= staffing.project.id %>">
+              <%= staffing.project.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if staffing.user.present? %>
+            <a href="/users/<%= staffing.user.id %>">
+              <%= staffing.user.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if staffing.role.present? %>
+            <a href="/roles/<%= staffing.role.id %>">
+              <%= staffing.role.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/staffings/<%= staffing.id %>" class="btn btn-primary">Show</a>
           <a href="/staffings/<%= staffing.id %>/edit" class="btn btn-warning">Edit</a>
