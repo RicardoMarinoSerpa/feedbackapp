@@ -16,7 +16,7 @@
 
       <% @mentorships.each do |mentorship| %>
       <tr>
-        <td><%= mentorship.mentee_id %></td>
+        <td><%= mentorship.mentee.name %></td>
         <td><%= mentorship.mentor_id %></td>
         <td>
           <a href="/mentorships/<%= mentorship.id %>" class="btn btn-primary">Show</a>
