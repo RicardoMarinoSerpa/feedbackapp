@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @staffing.errors.any? %>
+  <% @staffing.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Staffing</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_staffing" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for project_id -->
+      <div class="form-group">
+        <label for="project_id" class="control-label">
+          Project
+        </label>
+
+        <input type="text" id="project_id" name="project_id" placeholder="Project" class="form-control" value="<%= @staffing.project_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @staffing.user_id %>">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" value="<%= @staffing.role_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Staffing
+      </button>
+      or
+      <a href="/staffings">Cancel</a>
+    </form>
+  </div>
+</div>

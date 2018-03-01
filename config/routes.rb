@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Staffing resource:
+  # CREATE
+  get "/staffings/new", :controller => "staffings", :action => "new"
+  post "/create_staffing", :controller => "staffings", :action => "create"
+
+  # READ
+  get "/staffings", :controller => "staffings", :action => "index"
+  get "/staffings/:id", :controller => "staffings", :action => "show"
+
+  # UPDATE
+  get "/staffings/:id/edit", :controller => "staffings", :action => "edit"
+  post "/update_staffing/:id", :controller => "staffings", :action => "update"
+
+  # DELETE
+  get "/delete_staffing/:id", :controller => "staffings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Role resource:
   # CREATE
   get "/roles/new", :controller => "roles", :action => "new"
