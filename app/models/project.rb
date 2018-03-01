@@ -6,6 +6,10 @@ class Project < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :roles,
+             :through => :staffings,
+             :source => :role
+
   has_many   :users,
              :through => :staffings,
              :source => :user

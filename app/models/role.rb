@@ -9,6 +9,10 @@ class Role < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :projects,
+             :through => :staffings,
+             :source => :project
+
   has_many   :users,
              :through => :staffings,
              :source => :user
