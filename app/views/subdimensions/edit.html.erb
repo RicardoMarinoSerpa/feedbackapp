@@ -24,7 +24,7 @@
           Dimension
         </label>
 
-        <input type="text" id="dimension_id" name="dimension_id" placeholder="Dimension" class="form-control" value="<%= @subdimension.dimension_id %>">
+        <%= select_tag(:dimension_id, options_from_collection_for_select(Dimension.all, :id, :name, @subdimension.dimension_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for role_id -->
