@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @mentorship.errors.any? %>
+  <% @mentorship.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Mentorship #<%= @mentorship.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_mentorship/<%= @mentorship.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for mentee_id -->
+      <div class="form-group">
+        <label for="mentee_id" class="control-label">
+          Mentee
+        </label>
+
+        <input type="text" id="mentee_id" name="mentee_id" placeholder="Mentee" class="form-control" value="<%= @mentorship.mentee_id %>">
+      </div>
+
+      <!-- Label and input for mentor_id -->
+      <div class="form-group">
+        <label for="mentor_id" class="control-label">
+          Mentor
+        </label>
+
+        <input type="text" id="mentor_id" name="mentor_id" placeholder="Mentor" class="form-control" value="<%= @mentorship.mentor_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Mentorship
+      </button>
+      or
+      <a href="/mentorships/<%= @mentorship.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Mentorship resource:
+  # CREATE
+  get "/mentorships/new", :controller => "mentorships", :action => "new"
+  post "/create_mentorship", :controller => "mentorships", :action => "create"
+
+  # READ
+  get "/mentorships", :controller => "mentorships", :action => "index"
+  get "/mentorships/:id", :controller => "mentorships", :action => "show"
+
+  # UPDATE
+  get "/mentorships/:id/edit", :controller => "mentorships", :action => "edit"
+  post "/update_mentorship/:id", :controller => "mentorships", :action => "update"
+
+  # DELETE
+  get "/delete_mentorship/:id", :controller => "mentorships", :action => "destroy"
+  #------------------------------
+
   # Routes for the Dimension resource:
   # CREATE
   get "/dimensions/new", :controller => "dimensions", :action => "new"
