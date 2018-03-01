@@ -1,0 +1,98 @@
+<!-- Validation failure messages -->
+<% if @feedback.errors.any? %>
+  <% @feedback.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Feedback #<%= @feedback.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_feedback/<%= @feedback.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for staffing_id -->
+      <div class="form-group">
+        <label for="staffing_id" class="control-label">
+          Staffing
+        </label>
+
+        <input type="text" id="staffing_id" name="staffing_id" placeholder="Staffing" class="form-control" value="<%= @feedback.staffing_id %>">
+      </div>
+
+      <!-- Label and input for sender_user_id -->
+      <div class="form-group">
+        <label for="sender_user_id" class="control-label">
+          Sender user
+        </label>
+
+        <input type="text" id="sender_user_id" name="sender_user_id" placeholder="Sender user" class="form-control" value="<%= @feedback.sender_user_id %>">
+      </div>
+
+      <!-- Label and input for receiver_user_id -->
+      <div class="form-group">
+        <label for="receiver_user_id" class="control-label">
+          Receiver user
+        </label>
+
+        <input type="text" id="receiver_user_id" name="receiver_user_id" placeholder="Receiver user" class="form-control" value="<%= @feedback.receiver_user_id %>">
+      </div>
+
+      <!-- Label and input for subdimension_id -->
+      <div class="form-group">
+        <label for="subdimension_id" class="control-label">
+          Subdimension
+        </label>
+
+        <input type="text" id="subdimension_id" name="subdimension_id" placeholder="Subdimension" class="form-control" value="<%= @feedback.subdimension_id %>">
+      </div>
+
+      <!-- Label and input for grade -->
+      <div class="form-group">
+        <label for="grade" class="control-label">
+          Grade
+        </label>
+
+        <input type="text" id="grade" name="grade" placeholder="Grade" class="form-control" value="<%= @feedback.grade %>">
+      </div>
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="<%= @feedback.comment %>">
+      </div>
+
+      <!-- Label and input for receiver_visible -->
+      <div class="checkbox">
+        <label for="receiver_visible">
+          <input type="checkbox" id="receiver_visible" name="receiver_visible" value="1" <%= "checked" if @feedback.receiver_visible %>>
+          Receiver visible
+        </label>
+      </div>
+
+      <!-- Label and input for mentor_visible -->
+      <div class="checkbox">
+        <label for="mentor_visible">
+          <input type="checkbox" id="mentor_visible" name="mentor_visible" value="1" <%= "checked" if @feedback.mentor_visible %>>
+          Mentor visible
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Feedback
+      </button>
+      or
+      <a href="/feedbacks/<%= @feedback.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
